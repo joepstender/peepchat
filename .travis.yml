@@ -1,24 +1,25 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - bower --version
-  - npm install phantomjs-prebuilt
-  - phantomjs --version
-
+- npm config set spin false
+- npm install -g bower
+- bower --version
+- npm install phantomjs-prebuilt
+- phantomjs --version
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: m2kOjVayGy45RHJvAhjIALJs/Vn8WzjBrgWp+TtLIoEspw4H8ZylQQ7luYNED4rwM8QZcFIRaE8sjs+up/QBM1g4k94ZEM6StPDkeB/ksSNTr8aqvtmA9rMwOe7SI7/b9Svmt6A2DEr8AxyTFy8nAqsPTlbqEL3+OOXN8N9yC6LGZ5hXcHnUfWJvSeEytTWrnWlS9EnJrmMgfRjepTJELbc/q6aY7GTUhx1T0MMS4LFttQ/JCu7NRcXc94a7YgxoeU/rLEqs153QVdxMpQ8j2YW6x/DXKQdqZhCAtnRDgVzg/iE8o7+e5aMdh3b9f8c4vVIbyWmxZpvGsy8TfyvbWxtQOF6wQSfMlpPf6LtPuRtdQQXcyg3boqclMoh9mKVwIt8FGM7yIgT+jouttKpYdh4vQxvH23IpD/rG/n/L5h9NiZkWsF0p0oVlKFteYYo+IUpcX/5R69UTcI6yeO1H+J+iir9zDPPouDulXg1QhQQ95pK4Hw4p0aQr7yBtsEpBHGloXIMGsCSLigpZIo9cHFbRNQ1XiMua5ETVkwxJz9zBrbda5tS8s5woSlUzvsBOLPrNWrBy29VQV+AbrN78z6Zu65QL5AOfoQ7yFCr9KG7opmwJH78lKbjy3kDBe8uU3DC+61SoSEVfxjzdHGtfupQnKVKhkdBbMFQIStcIzHA=
+  app: young-lake-29895
+  on:
+    repo: jsArgus/peepchat
